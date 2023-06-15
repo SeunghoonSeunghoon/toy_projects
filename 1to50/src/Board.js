@@ -13,9 +13,9 @@ function Board({ numbers, Check }) {
 }
 
 const Container = styled.div`
-  width: 400px;
-  height: 400px;
-  border: 1px solid blue;
+  width: 450px;
+  height: 450px;
+  border: 5px solid skyblue;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
