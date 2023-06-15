@@ -85,10 +85,11 @@ const Container = styled.div`
   margin-left: 120px;
   gap:10px;
 `;
+
 const MainText = styled.h1`
   text-align: left;
   font-size: 35px;
-  margin-bottom: 30px;
+  margin:auto;
 `;
 const StartButton = styled.div`
   background-color: #c9d6ff;
@@ -109,7 +110,7 @@ const Main = styled.div`
   background-color: aliceblue;
   display: flex;
   justify-content: center;
-  align-items: center;
+  vertical-align: middle;
   border-radius: 35px;
 `;
 
