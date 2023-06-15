@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1d9817d4.css",
+    "main.js": "/static/js/main.58058d37.js",
+    "static/media/happycat-unscreen.gif": "/static/media/happycat-unscreen.09a34ade5cb742c41ca3.gif",
+    "index.html": "/index.html",
+    "main.1d9817d4.css.map": "/static/css/main.1d9817d4.css.map",
+    "main.58058d37.js.map": "/static/js/main.58058d37.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1d9817d4.css",
+    "static/js/main.58058d37.js"
+  ]
+}
