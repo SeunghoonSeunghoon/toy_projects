@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.1d9817d4.css",
-    "main.js": "/static/js/main.58058d37.js",
-    "static/media/happycat-unscreen.gif": "/static/media/happycat-unscreen.09a34ade5cb742c41ca3.gif",
-    "index.html": "/index.html",
-    "main.1d9817d4.css.map": "/static/css/main.1d9817d4.css.map",
-    "main.58058d37.js.map": "/static/js/main.58058d37.js.map"
+    "main.css": "/toy_projects/static/css/main.1d9817d4.css",
+    "main.js": "/toy_projects/static/js/main.d16a0f4c.js",
+    "static/media/happycat-unscreen.gif": "/toy_projects/static/media/happycat-unscreen.09a34ade5cb742c41ca3.gif",
+    "index.html": "/toy_projects/index.html",
+    "main.1d9817d4.css.map": "/toy_projects/static/css/main.1d9817d4.css.map",
+    "main.d16a0f4c.js.map": "/toy_projects/static/js/main.d16a0f4c.js.map"
   },
   "entrypoints": [
     "static/css/main.1d9817d4.css",
-    "static/js/main.58058d37.js"
+    "static/js/main.d16a0f4c.js"
   ]
 }
