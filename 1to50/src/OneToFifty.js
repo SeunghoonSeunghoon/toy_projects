@@ -46,7 +46,7 @@ function OneToFifty() {
   };
   const Click = (num) => {
     if (num === current) {
-      if (num === 1) {
+      if (num === 50) {
         endGame();
       }
     }
