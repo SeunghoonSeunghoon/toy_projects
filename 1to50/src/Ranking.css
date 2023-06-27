@@ -1,0 +1,14 @@
+.rankingDiv{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+    display:flex;
+    justify-content: center;
+}
+.rankDiv{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, #77a1d3, #79cbca, #e684ae);
+    display:flex;
+    justify-content: center;
+}

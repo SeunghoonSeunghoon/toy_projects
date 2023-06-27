@@ -1,14 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useId } from "react";
 import styled from "styled-components";
 import Board from "./Board";
 import Timer from "./Timer";
 import "./oneToFifty.css";
 import Cat from "./img/happycat-unscreen.gif";
+import { db } from "./firebase-config";
+import { collection, getDocs } from "firebase/firestore";
 let array = [];
 for (let i = 1; i <= 25; i++) {
   array.push(i);
 }
 function OneToFifty() {
+  const [users, setUsers] = useState([]);
+  // db의 users 컬렉션을 가져옴
+  const usersCollectionRef = collection(db, "users");
+
+  const uniqueId = useId();
+  console.log(uniqueId);
+
+  useEffect(() => {
+    // 비동기로 데이터 받을준비
+    const getUsers = async () => {
+      // getDocs로 컬렉션안에 데이터 가져오기
+      const data = await getDocs(usersCollectionRef);
+      // users에 data안의 자료 추가. 객체에 id 덮어씌우는거
+      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getUsers();
+  }, []);
+  const showUsers = users.map((value) => (
+    <div key={uniqueId}>
+      <h1>Name: {value.name}</h1>
+      <h1>time: {value.time}</h1>
+    </div>
+  ));
   let [numbers, setNumbers] = useState(array);
   let [gameFlag, setGameFlag] = useState(false);
   let [current, setCurrent] = useState(1);
@@ -20,7 +46,7 @@ function OneToFifty() {
   };
   const Click = (num) => {
     if (num === current) {
-      if (num === 50) {
+      if (num === 1) {
         endGame();
       }
     }
@@ -35,6 +61,7 @@ function OneToFifty() {
   const startGame = () => {
     setNumbers(shuffle(array));
     setCurrent = 1;
+
     setGameFlag(true);
   };
   const endGame = () => {
@@ -44,7 +71,6 @@ function OneToFifty() {
     <div className="gradient-bg">
       <WideMain>
         <Img src={Cat}></Img>
-
         <Container>
           <Main>
             <MainText>해삐캣과 함께 1부터 50까지!</MainText>
@@ -53,9 +79,27 @@ function OneToFifty() {
           {gameFlag ? (
             <Timer />
           ) : (
-            <StartButton onClick={startGame}>
-              <ButtonText>시작하기!!</ButtonText>
-            </StartButton>
+            <ButtonDiv>
+              <StartButton onClick={startGame}>
+                <ButtonText>시작하기!!</ButtonText>
+              </StartButton>
+              <a
+                href="/ranking"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <StartButton>
+                  <ButtonText>등록하기!!</ButtonText>
+                </StartButton>
+              </a>
+              <StartButton>
+                <a
+                  href="/rank"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <ButtonText>랭킹가기!!</ButtonText>
+                </a>
+              </StartButton>
+            </ButtonDiv>
           )}
         </Container>
         <Img src={Cat}></Img>
@@ -72,8 +116,9 @@ const shuffle = (array) => {
   return array;
 };
 const WideMain = styled.div`
-display:flex;
-gap:30px;`
+  display: flex;
+  gap: 30px;
+`;
 
 const Container = styled.div`
   width: 600px;
@@ -83,13 +128,13 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   margin-left: 120px;
-  gap:10px;
+  gap: 10px;
 `;
 
 const MainText = styled.h1`
   text-align: left;
   font-size: 35px;
-  margin:auto;
+  margin: auto;
 `;
 const StartButton = styled.div`
   background-color: #c9d6ff;
@@ -97,7 +142,7 @@ const StartButton = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 30px;
-  width: 300px;
+  width: 200px;
   height: 70px;
   border-radius: 10px;
 `;
@@ -117,5 +162,13 @@ const Main = styled.div`
 const Img = styled.img`
   width: 300px;
   height: 300px;
+`;
+
+const ButtonDiv = styled.div`
+  width: 700px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
 `;
 export default OneToFifty;
