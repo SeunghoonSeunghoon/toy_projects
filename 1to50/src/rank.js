@@ -13,7 +13,7 @@ import "./Ranking.css";
 const Rank = () => {
   const [users, setUsers] = useState([]);
   const usersCollectionRef = collection(db, "users");
-  const queryRef = query(usersCollectionRef, orderBy("time"));
+  const queryRef = query(usersCollectionRef, orderBy("time", "asc"));
 
   useEffect(() => {
     const getUsers = async () => {
