@@ -70,7 +70,6 @@ function OneToFifty() {
   return (
     <div className="gradient-bg">
       <WideMain>
-        <Img src={Cat}></Img>
         <Container>
           <Main>
             <MainText>해삐캣과 함께 1부터 50까지!</MainText>
@@ -102,7 +101,7 @@ function OneToFifty() {
             </ButtonDiv>
           )}
         </Container>
-        <Img src={Cat}></Img>
+
       </WideMain>
     </div>
   );
@@ -116,15 +115,15 @@ const shuffle = (array) => {
   return array;
 };
 const WideMain = styled.div`
-  width: 100%;
-  height: 100%;
+width:100%;
+height:100%;
   display: flex;
   gap: 30px;
 `;
 
 const Container = styled.div`
-  width: 600px;
-  height: 700px;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,8 +151,8 @@ const ButtonText = styled.div`
   font-size: 25px;
 `;
 const Main = styled.div`
-  width: 50%;
-  height: 100%;
+  width: 500px;
+  height: 80px;
   background-color: aliceblue;
   display: flex;
   justify-content: center;
@@ -167,7 +166,7 @@ const Img = styled.img`
 `;
 
 const ButtonDiv = styled.div`
-  width: 700px;
+  width: 100%;
   height: 100px;
   display: flex;
   justify-content: center;
