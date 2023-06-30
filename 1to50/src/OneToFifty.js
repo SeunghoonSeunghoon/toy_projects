@@ -152,8 +152,8 @@ const ButtonText = styled.div`
   font-size: 25px;
 `;
 const Main = styled.div`
-  width: 500px;
-  height: 80px;
+  width: 50%;
+  height: 100%;
   background-color: aliceblue;
   display: flex;
   justify-content: center;
